@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get a FizzBuzz</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      main {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .fizbuz {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .fizbuz p {
+        font-size: 18px;
+      }
+      input {
+        width: 250px;
+        border-radius: 8px;
+        border: 2px solid rosybrown;
+        padding: 5px;
+      }
+
+      button {
+        width: 100px;
+        height: 30px;
+        border-radius: 8px;
+        background-color: brown;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .hasil {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+
+      button:hover {
+        background-color: rgb(173, 28, 28);
+      }
+
+      .hasil .invalid {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Get a FizzBuzz Result!</h1>
+      <div class="fizbuz">
+        <p>type a number:</p>
+        <input id="input" type="number" />
+        <button onclick="tombol()">Click Here!</button>
+      </div>
+      <div id="hasil" class="hasil"></div>
+    </main>
+
+    <script>
+      function tombol() {
+        const hasil = document.getElementById('hasil');
+        const angka = document.getElementById('input').value;
+        let input = document.getElementById('input').value;
+        let tri = input % 3 === 0;
+        let five = input % 5 === 0;
+        if (input <= 0 || '') {
+          hasil.insertAdjacentHTML('beforeend', '<p class="invalid">Invalid Input</p>');
+        } else if ((input = tri && five)) {
+          hasil.insertAdjacentHTML('beforeend', '<p>FizBuzz!</p>');
+        } else if ((input = five)) {
+          hasil.insertAdjacentHTML('beforeend', '<p> Buzz! </p>');
+        } else if ((input = tri)) {
+          hasil.insertAdjacentHTML('beforeend', '<p> Fizz! </p>');
+        } else {
+          hasil.insertAdjacentHTML('beforeend', `<p> ${angka} </p>`);
+        }
+      }
+    </script>
+  </body>
+</html>
